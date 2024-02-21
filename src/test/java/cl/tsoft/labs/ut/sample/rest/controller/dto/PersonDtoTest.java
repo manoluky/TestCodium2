@@ -105,4 +105,23 @@ public class PersonDtoTest {
         // Then
         assertTrue(result);
     }
+    @Test
+    public void test_data_annotation() {
+        PersonDto personDto = new PersonDto();
+        personDto.setId(1L);
+        personDto.setRut("12345678-K");
+        personDto.setFullName("John Doe");
+        personDto.setBirthDate("1990-01-01");
+        personDto.setHomeAddress("123 Main St");
+        personDto.setCellPhone("555-1234");
+        personDto.setMail("john.doe@example.com");
+
+        assertEquals(1L, personDto.getId());
+        assertEquals("12345678-K", personDto.getRut());
+        assertEquals("John Doe", personDto.getFullName());
+        assertEquals("1990-01-01", personDto.getBirthDate());
+        assertEquals("123 Main St", personDto.getHomeAddress());
+        assertEquals("555-1234", personDto.getCellPhone());
+        assertEquals("john.doe@example.com", personDto.getMail());
+    }
 }
