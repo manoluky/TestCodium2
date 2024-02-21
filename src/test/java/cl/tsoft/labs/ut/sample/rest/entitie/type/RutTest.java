@@ -145,4 +145,16 @@ class RutTest {
         // Assert
         assertFalse(result);
     }
+
+    @Test
+    public void test_valueOf_returns_null_when_rut_is_null() {
+        // Arrange
+        String rut = null;
+
+        // Act
+        Rut result = Rut.valueOf(rut);
+
+        // Assert
+        assertNull(result);
+    }
 }
