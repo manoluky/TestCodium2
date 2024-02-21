@@ -64,4 +64,17 @@ class RutTest {
         assertEquals(expectedNumber, rut.getNumber());
         assertEquals(expectedDigit, rut.getDigit());
     }
+    @Test
+    public void test_create_instance_with_negative_number() {
+        // Arrange
+        long number = -12345678;
+        char digit = 'K';
+
+        // Act
+        Rut rut = new Rut(number, digit);
+
+        // Assert
+        assertEquals(0, rut.getNumber());
+        assertEquals(digit, rut.getDigit());
+    }
 }
