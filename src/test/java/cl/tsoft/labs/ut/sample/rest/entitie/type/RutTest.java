@@ -23,5 +23,18 @@ class RutTest {
         assertEquals(number, rut.getNumber());
         assertEquals(digit, rut.getDigit());
     }
+    @Test
+    public void test_create_instance_with_valid_parameters() {
+        // Arrange
+        long number = 12345678;
+        char digit = 'K';
+
+        // Act
+        Rut rut = new Rut(number, digit);
+
+        // Assert
+        assertEquals(number, rut.getNumber());
+        assertEquals(digit, rut.getDigit());
+    }
 
 }
