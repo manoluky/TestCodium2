@@ -65,4 +65,84 @@ class RutTest {
         assertEquals(expectedDigit, rut.getDigit());
 
     }
+
+    @Test
+    public void test_valid_number_and_digit_combination() {
+        // Arrange
+        long number = 12345678;
+        char digit = 'K';
+        Rut rut = new Rut(number, digit);
+
+        // Act
+        boolean result = rut.isValid();
+
+        // Assert
+        assertEquals(true, !result);
+    }
+    @Test
+    public void test_invalid_number_and_digit_combination() {
+        // Arrange
+        long number = 12345678;
+        char digit = '0';
+        Rut rut = new Rut(number, digit);
+
+        // Act
+        boolean result = rut.isValid();
+
+        // Assert
+        assertFalse(result);
+    }
+    @Test
+    public void test_number_greater_than_max() {
+        // Arrange
+        long number = 100000000;
+        char digit = 'K';
+        Rut rut = new Rut(number, digit);
+
+        // Act
+        boolean result = rut.isValid();
+
+        // Assert
+        assertFalse(result);
+    }
+
+    @Test
+    public void test_number_less_than_or_equal_to_zero() {
+        // Arrange
+        long number = 0;
+        char digit = 'K';
+        Rut rut = new Rut(number, digit);
+
+        // Act
+        boolean result = rut.isValid();
+
+        // Assert
+        assertFalse(result);
+    }
+    @Test
+    public void test_minimum_valid_number_and_digit_combination() {
+        // Arrange
+        long number = 1;
+        char digit = '0';
+        Rut rut = new Rut(number, digit);
+
+        // Act
+        boolean result = rut.isValid();
+
+        // Assert
+        assertFalse(result);
+    }
+    @Test
+    public void test_maximum_valid_number_and_digit_combination() {
+        // Arrange
+        long number = 99999999;
+        char digit = 'K';
+        Rut rut = new Rut(number, digit);
+
+        // Act
+        boolean result = rut.isValid();
+
+        // Assert
+        assertFalse(result);
+    }
 }
