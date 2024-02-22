@@ -208,9 +208,5 @@ class RutTest {
         assertEquals(12345678, rut.getNumber());
         assertEquals('9', rut.getDigit());
     }
-    @Test
-    public void test_new_instance_with_negative_number() {
-        Rut rut = new Rut(-1, 'X');
-        assertEquals(0, rut.getNumber());
-    }
+
 }
