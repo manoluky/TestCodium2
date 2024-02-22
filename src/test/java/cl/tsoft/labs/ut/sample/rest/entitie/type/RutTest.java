@@ -157,4 +157,55 @@ class RutTest {
         // Assert
         assertNull(result);
     }
+    @Test
+    public void test_isValid_withValidRutInstance() {
+        // Arrange
+        long number = 12345678;
+        char digit = 'K';
+        Rut rut = new Rut(number, digit);
+
+        // Act
+        boolean result = rut.isValid();
+
+        // Assert
+        assertFalse(result);
+    }
+    @Test
+    public void test_toString_validRutInstance() {
+        // Arrange
+        long number = 12345678;
+        char digit = 'K';
+        Rut rut = new Rut(number, digit);
+
+        // Act
+        String result = rut.toString();
+
+        // Assert
+        assertEquals("12345678-K", result);
+    }
+    @Test
+    public void test_calculateDigit_withValidNumber_shouldReturnCorrectDigit() {
+        // Arrange
+        long number = 12345678;
+        char expectedDigit = '5';
+
+        // Act
+        char actualDigit = Rut.calculateDigit(number);
+
+        // Assert
+        assertEquals(expectedDigit, actualDigit);
+    }
+    @Test
+    public void test_valueOf_validStringParameter_returnsRutInstanceWithCorrectAttributes() {
+        // Arrange
+        String validRutString = "12345678-9";
+
+        // Act
+        Rut rut = Rut.valueOf(validRutString);
+
+        // Assert
+        assertNotNull(rut);
+        assertEquals(12345678, rut.getNumber());
+        assertEquals('9', rut.getDigit());
+    }
 }
