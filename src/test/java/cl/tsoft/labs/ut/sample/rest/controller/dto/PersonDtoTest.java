@@ -124,4 +124,16 @@ public class PersonDtoTest {
         assertEquals("555-1234", personDto.getCellPhone());
         assertEquals("john.doe@example.com", personDto.getMail());
     }
+    @Test
+    public void test_create_personDto_with_null_fields() {
+        PersonDto personDto = new PersonDto();
+
+        assertNull(personDto.getId());
+        assertNull(personDto.getRut());
+        assertNull(personDto.getFullName());
+        assertNull(personDto.getBirthDate());
+        assertNull(personDto.getHomeAddress());
+        assertNull(personDto.getCellPhone());
+        assertNull(personDto.getMail());
+    }
 }
