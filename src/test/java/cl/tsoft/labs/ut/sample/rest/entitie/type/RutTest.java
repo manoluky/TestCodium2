@@ -259,7 +259,7 @@ class RutTest {
         @Test
         public void test_calculateDigit_with_valid_number() {
             long number = 12345678;
-            char expectedDigit = 'K';
+            char expectedDigit = '5';
     
             char actualDigit = Rut.calculateDigit(number);
     
