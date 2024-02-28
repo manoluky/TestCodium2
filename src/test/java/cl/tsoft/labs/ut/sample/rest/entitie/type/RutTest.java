@@ -274,5 +274,14 @@ class RutTest {
         assertEquals(12345678, rut.getNumber());
         assertEquals('K', rut.getDigit());
     }
+      
+
+        // Creating a new instance of Rut with a number greater than 99999999 should raise an exception.
+        @Test
+        public void test_number_greater_than_99999999() {
+            assertThrows(IllegalArgumentException.class, () -> {
+                new Rut(100000000, 'K');
+            });
+        }
     
 }
