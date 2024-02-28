@@ -7,8 +7,8 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-02-22T12:18:12-0300",
-    comments = "version: 1.5.3.Final, compiler: javac, environment: Java 14.0.2 (Oracle Corporation)"
+    date = "2024-02-28T14:56:59-0300",
+    comments = "version: 1.5.3.Final, compiler: Eclipse JDT (IDE) 3.37.0.v20240206-1609, environment: Java 17.0.10 (Eclipse Adoptium)"
 )
 public class PersonMapperImpl extends PersonMapper {
 
@@ -20,12 +20,12 @@ public class PersonMapperImpl extends PersonMapper {
 
         PersonDto.PersonDtoBuilder personDto = PersonDto.builder();
 
-        personDto.id( person.getId() );
         if ( person.getBirthDate() != null ) {
             personDto.birthDate( DateTimeFormatter.ISO_LOCAL_DATE.format( person.getBirthDate() ) );
         }
-        personDto.homeAddress( person.getHomeAddress() );
         personDto.cellPhone( person.getCellPhone() );
+        personDto.homeAddress( person.getHomeAddress() );
+        personDto.id( person.getId() );
         personDto.mail( person.getMail() );
 
         personDto.fullName( person.getName() + " " + person.getPaternalLastName() + " " + person.getMaternalLastName() );
@@ -46,12 +46,12 @@ public class PersonMapperImpl extends PersonMapper {
         person.setPaternalLastName( fullNameToPaternalLastName( personDto.getFullName() ) );
         person.setMaternalLastName( fullNameToMaternalLastName( personDto.getFullName() ) );
         person.setRut( rutToRut( personDto.getRut() ) );
-        person.setId( personDto.getId() );
         if ( personDto.getBirthDate() != null ) {
             person.setBirthDate( LocalDate.parse( personDto.getBirthDate() ) );
         }
-        person.setHomeAddress( personDto.getHomeAddress() );
         person.setCellPhone( personDto.getCellPhone() );
+        person.setHomeAddress( personDto.getHomeAddress() );
+        person.setId( personDto.getId() );
         person.setMail( personDto.getMail() );
 
         return person;

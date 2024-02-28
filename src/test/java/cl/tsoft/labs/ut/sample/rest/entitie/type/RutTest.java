@@ -234,4 +234,15 @@ class RutTest {
         assertEquals(number, rut.getNumber());
         assertEquals(digit, rut.getDigit());
     }
+        // Creating a new instance of Rut with valid arguments should set the number and digit attributes correctly.
+        @Test
+        public void test_valid_arguments() {
+            long number = 12345678;
+            char digit = 'K';
+    
+            Rut rut = new Rut(number, digit);
+    
+            assertEquals(number, rut.getNumber());
+            assertEquals(digit, rut.getDigit());
+        }
 }
