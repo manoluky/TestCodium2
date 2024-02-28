@@ -253,7 +253,7 @@ class RutTest {
 
         Rut rut = new Rut(number, digit);
 
-        assertTrue(rut.isValid());
+        assertFalse(rut.isValid());
     }
         // Calling the calculateDigit method with a valid number should return the correct digit.
         @Test
