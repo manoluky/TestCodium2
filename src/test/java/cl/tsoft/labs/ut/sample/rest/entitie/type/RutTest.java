@@ -245,4 +245,34 @@ class RutTest {
             assertEquals(number, rut.getNumber());
             assertEquals(digit, rut.getDigit());
         }
+            // Calling the isValid method with a valid Rut instance should return true.
+    @Test
+    public void test_isValid_with_valid_Rut_instance() {
+        long number = 12345678;
+        char digit = 'K';
+
+        Rut rut = new Rut(number, digit);
+
+        assertTrue(rut.isValid());
+    }
+        // Calling the calculateDigit method with a valid number should return the correct digit.
+        @Test
+        public void test_calculateDigit_with_valid_number() {
+            long number = 12345678;
+            char expectedDigit = 'K';
+    
+            char actualDigit = Rut.calculateDigit(number);
+    
+            assertEquals(expectedDigit, actualDigit);
+        }
+            // Calling the valueOf method with a valid string representation of a Rut should return a new Rut instance with the correct number and digit attributes.
+    @Test
+    public void test_valueOf_withValidStringRepresentation() {
+        String rutString = "12345678-K";
+        Rut rut = Rut.valueOf(rutString);
+
+        assertEquals(12345678, rut.getNumber());
+        assertEquals('K', rut.getDigit());
+    }
+    
 }
